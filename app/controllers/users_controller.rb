@@ -7,7 +7,7 @@ class UsersController < ApplicationController
       sign_in(@user)
       redirect_to root_path
     else
-      flash.now[:error] = @user.errors.full_messages
+      flash[:error] = "Could not sign you up. Check the form below for errors"
       render "landings/new"
     end
   end
@@ -18,4 +18,3 @@ class UsersController < ApplicationController
     params.require(:user).permit(:email, :password)
   end
 end
-

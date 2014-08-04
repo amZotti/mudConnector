@@ -2,12 +2,12 @@ class SessionsController < ApplicationController
   skip_before_action :require_login, only: [:new, :create]
 
   def create
-    user_session = authenticate_session(session_params)
-    if sign_in(user_session)
+    user = authenticate_session(session_params)
+    if sign_in(user)
       redirect_to root_path
     else
       @user = User.new
-      flash.now[:error] = ["Could not login due to incorrect username or password"]
+      flash[:error] = "Could not login due to incorrect username or password"
       render "landings/new"
     end
   end
@@ -23,4 +23,3 @@ class SessionsController < ApplicationController
     params.require(:session).permit(:email, :password)
   end
 end
-
