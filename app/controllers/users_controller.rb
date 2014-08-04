@@ -1,18 +1,14 @@
 class UsersController < ApplicationController
   skip_before_action :require_login, only: [:new, :create]
 
-  def new
-    @user = User.new
-  end
-
   def create
     @user = sign_up(user_params)
-
     if @user.valid?
       sign_in(@user)
       redirect_to root_path
     else
-      render :new
+      flash.now[:error] = @user.errors.full_messages
+      render "landings/new"
     end
   end
 
