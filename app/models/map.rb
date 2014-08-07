@@ -5,7 +5,7 @@ class Map
     world.each do |y_axis_rooms|
       y_axis_rooms.each do |x_axis_rooms|
         x_axis_rooms.each do |room|
-         html_map += room
+          html_map += room
         end
       end
       html_map += "\n"
@@ -19,5 +19,3 @@ class Map
     world[y_coordinate][x_coordinate][0][0] = "*"
   end
 end
-
-
