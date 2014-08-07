@@ -13,7 +13,7 @@ class RenderWorld
     return map
   end
 
-  def mark_character_coordinates(world,character_coordinates)
+  def mark_character_coordinates(world, character_coordinates)
     x_coordinate = character_coordinates[0]
     y_coordinate = character_coordinates[1]
     world[y_coordinate][x_coordinate][0][0] = "*"
