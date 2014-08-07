@@ -1,4 +1,5 @@
 class RenderWorld
+
   def render_world_for_display(world)
     map = ""
     world.each do |y_axis_rooms|

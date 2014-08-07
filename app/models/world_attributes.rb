@@ -1,4 +1,5 @@
 class WorldAttributes
+
   def grass_room
     ["::"]
   end
