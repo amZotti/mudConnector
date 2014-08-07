@@ -1,4 +1,4 @@
-class WorldBuilder
+class World
 
   def initialize
     @terrain = [

@@ -1,5 +1,6 @@
 class DashboardsController < ApplicationController
   def show
-    @map = MapUpdater.start_game
+    character = Character.new
+    @map = Map.new(character).display
   end
 end
