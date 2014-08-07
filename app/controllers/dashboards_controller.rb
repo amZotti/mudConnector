@@ -1,5 +1,5 @@
 class DashboardsController < ApplicationController
   def show
-    @map = Character.parse_location
+    @map = MapUpdater.start_game
   end
 end

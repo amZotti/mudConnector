@@ -1,16 +1,16 @@
-class RenderWorld
+class Map
 
-  def render_world_for_display(world)
-    map = ""
+  def render_world_for_html_display(world)
+    html_map = ""
     world.each do |y_axis_rooms|
       y_axis_rooms.each do |x_axis_rooms|
         x_axis_rooms.each do |room|
-          map += room
+         html_map += room
         end
       end
-      map += "\n"
+      html_map += "\n"
     end
-    return map
+    html_map
   end
 
   def mark_character_coordinates(world, character_coordinates)
