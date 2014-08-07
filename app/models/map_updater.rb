@@ -1,3 +1,4 @@
+require 'world_builder'
 class MapUpdater
 
   def self.update_game(map,world,location)
@@ -6,6 +7,9 @@ class MapUpdater
   end
 
   def self.start_game
-    update_game(Map.new,WORLD,START_LOCATION)
+    starting_location = [0,0]
+    world = WorldBuilder.new
+    map = Map.new
+    update_game(map, world.terrain, starting_location)
   end
 end
