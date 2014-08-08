@@ -1,8 +1,6 @@
 class TerrainBuilder
   attr_accessor :terrain
 
- #In console upon server start:
-  # World.create(terrain: TerrainBuilder.new.terrain)
   def initialize
     @terrain = [
       grasslands(10),
