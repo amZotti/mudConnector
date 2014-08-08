@@ -1,4 +1,4 @@
-class World
+class World < ActiveRecord::Base
   def initialize
     @terrain = [
       grasslands(10),
