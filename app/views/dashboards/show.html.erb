@@ -3,3 +3,9 @@
 <pre>
   <%= @map %>
 </pre>
+<%= form_for :directions do |f| %>
+  <%= f.submit "west" %>
+  <%= f.submit "north" %>
+  <%= f.submit "south" %>
+  <%= f.submit "east" %>
+<% end %>
