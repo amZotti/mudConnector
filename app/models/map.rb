@@ -1,6 +1,6 @@
 class Map
   def initialize(character)
-    @world = World.new
+    @world = World.first
     @character = character
   end
 

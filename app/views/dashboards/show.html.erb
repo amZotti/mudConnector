@@ -3,3 +3,21 @@
 <pre>
   <%= @map %>
 </pre>
+
+<%= form_for :directions do |f| %>
+  <% if @character.can_move_west? %>.
+    <%= f.submit "west" %>
+  <% end %>
+
+  <% if @character.can_move_east? %>
+    <%= f.submit "north" %>
+  <% end %>
+
+  <% if @character.can_move_south? %>
+    <%= f.submit "south" %>
+  <% end %>
+
+  <% if @character.can_move_east? %>
+    <%= f.submit "east" %>
+  <% end %>
+<% end %>
