@@ -2,9 +2,9 @@ class World
 
   def initialize
     @terrain = [
-      self.grasslands(10),
-      self.grasslands(5) + self.forest(5),
-      self.forest(5) + self.water(5)
+      grasslands(10),
+      grasslands(5) + forest(5),
+      forest(5) + water(5)
     ]
   end
 
