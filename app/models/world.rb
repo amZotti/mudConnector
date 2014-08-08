@@ -1,5 +1,4 @@
 class World
-
   def initialize
     @terrain = [
       grasslands(10),

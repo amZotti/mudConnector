@@ -4,5 +4,5 @@ class Character
     @y_coordinate = starting_y_coordinate
   end
 
-  attr_accessor :x_coordinate, :y_coordinate
+  attr_reader :x_coordinate, :y_coordinate
 end
