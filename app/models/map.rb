@@ -20,8 +20,6 @@ class Map
   end
 
   def mark_character_coordinates
-    x_coordinate = @character.coordinates[0]
-    y_coordinate = @character.coordinates[1]
-    @world.terrain[y_coordinate][x_coordinate][0][0] = "*"
+    @world.terrain[@character.y_coordinate][@character.x_coordinate][0][0] = "*"
   end
 end
