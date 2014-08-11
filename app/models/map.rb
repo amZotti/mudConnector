@@ -1,9 +1,14 @@
-class Map < ActiveRecord::Base
+class Map
+
+  def initialize(character)
+    @character = character
+  end
 
   def display
-    mark_character_coordinates
+    map_of_terrain = Marshal.load(Marshal.dump(WORLD.terrain))
+    mark_character_coordinates(map_of_terrain)
     html_map = ""
-    WORLD.terrain.each do |y_axis_rooms|
+    map_of_terrain.each do |y_axis_rooms|
       y_axis_rooms.each do |x_axis_rooms|
         x_axis_rooms.each do |room|
           html_map += room
@@ -14,7 +19,7 @@ class Map < ActiveRecord::Base
     html_map
   end
 
-  def mark_character_coordinates
-    WORLD.terrain[current_user.character.y_coordinate][current_user.character.x_coordinate][0][0] = "*"
+  def mark_character_coordinates(map_of_terrain)
+    map_of_terrain[@character.y_coordinate][@character.x_coordinate][0][0] = "*"
   end
 end

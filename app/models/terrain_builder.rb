@@ -3,9 +3,18 @@ class TerrainBuilder
 
   def initialize
     @terrain = [
-      grasslands(10),
-      grasslands(5) + forest(5),
-      forest(5) + water(5)
+      grasslands(40),
+      grasslands(40),
+      grasslands(40),
+      forest(20) + grasslands(20),
+      forest(20) + water(20),
+      forest(20) + water(20),
+      forest(20) + water(20),
+      forest(20) + water(20),
+      forest(20) + water(20),
+      grasslands(40),
+      grasslands(40),
+      grasslands(40)
     ]
   end
 

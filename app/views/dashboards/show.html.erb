@@ -1,8 +1,6 @@
 <%= link_to "Log out", :session, method: :delete %>
 <h1>Map</h1>
-<pre>
-  <%= @map %>
-</pre>
+<pre id="ascii-map"><%= @map %></pre>
 
 <TABLE BORDER="0">
   <TR>
@@ -13,7 +11,7 @@
     </TD>
 
     <TD>
-      <% if @character.can_move_east? %>
+      <% if @character.can_move_north? %>
         <%= button_to "north", movements_url(direction: :north) %>
     <% end %>
     </TD>
