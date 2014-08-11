@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   constraints Monban::Constraints::SignedIn.new do
     root "dashboards#show", as: :dashboard
     resource :session, only: [:destroy] 
+    resources :movements, only: [:create]
   end
 
   constraints Monban::Constraints::SignedOut.new do
