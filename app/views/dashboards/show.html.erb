@@ -5,27 +5,19 @@
 <TABLE BORDER="0">
   <TR>
     <TD>
-      <% if @character.can_move_west? %>
         <%= button_to "west", movements_url(direction: :west) %>
-    <% end %>
     </TD>
 
     <TD>
-      <% if @character.can_move_north? %>
         <%= button_to "north", movements_url(direction: :north) %>
-    <% end %>
     </TD>
 
     <TD>
-      <% if @character.can_move_south? %>
         <%= button_to "south", movements_url(direction: :south) %>
-    <% end %>
     </TD>
 
     <TD>
-      <% if @character.can_move_east? %>
         <%= button_to "east", movements_url(direction: :east) %>
-    <% end %>
     </TD>
   </TR>
 </TABLE>

@@ -1,22 +1,6 @@
 class Character < ActiveRecord::Base
   belongs_to :user
 
-  def can_move_east?
-    WORLD.terrain[x_coordinate + 1][y_coordinate]
-  end
-
-  def can_move_west?
-    WORLD.terrain[x_coordinate - 1][y_coordinate]
-  end
-
-  def can_move_north?
-    WORLD.terrain[x_coordinate][y_coordinate + 1]
-  end
-
-  def can_move_south?
-    WORLD.terrain[x_coordinate][y_coordinate - 1]
-  end
-
   def move(direction)
     case direction
 
@@ -35,22 +19,38 @@ class Character < ActiveRecord::Base
   end
 
   def move_east
-    self.x_coordinate += 1
+    if self.x_coordinate == 39
+      self.x_coordinate = 0
+    else
+      self.x_coordinate += 1
+    end
     save
   end
 
   def move_west
-    self.x_coordinate -= 1
+    if self.x_coordinate == -39
+      self.x_coordinate = 0
+    else
+      self.x_coordinate -= 1
+    end
     save
   end
 
   def move_north
-    self.y_coordinate -= 1
+    if self.y_coordinate == -11
+      self.y_coordinate = 0
+    else
+      self.y_coordinate -= 1
+    end
     save
   end
 
   def move_south
-    self.y_coordinate += 1
+    if self.y_coordinate == 11
+      self.y_coordinate = 0
+    else
+      self.y_coordinate += 1
+    end
     save
   end
 end
