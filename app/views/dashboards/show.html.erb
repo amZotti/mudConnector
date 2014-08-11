@@ -13,7 +13,7 @@
     </TD>
 
     <TD>
-      <% if @character.can_move_east? %>
+      <% if @character.can_move_north? %>
         <%= button_to "north", movements_url(direction: :north) %>
     <% end %>
     </TD>

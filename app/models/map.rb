@@ -1,4 +1,8 @@
-class Map < ActiveRecord::Base
+class Map
+
+  def initialize(character)
+    @character = character
+  end
 
   def display
     mark_character_coordinates
@@ -15,6 +19,6 @@ class Map < ActiveRecord::Base
   end
 
   def mark_character_coordinates
-    WORLD.terrain[current_user.character.y_coordinate][current_user.character.x_coordinate][0][0] = "*"
+    WORLD.terrain[@character.y_coordinate][@character.x_coordinate][0][0] = "*"
   end
 end

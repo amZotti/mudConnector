@@ -1,7 +1,8 @@
 class MovementsController < ApplicationController
   def create
     @character = current_user.character
-    @map = Map.new.display
+    @character.move(params[:direction])
+    @map = Map.new(@character).display
     render "dashboards/show"
   end
 end
