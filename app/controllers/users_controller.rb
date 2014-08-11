@@ -5,6 +5,7 @@ class UsersController < ApplicationController
     @user = sign_up(user_params)
     if @user.valid?
       sign_in(@user)
+      Character.create(user_id: current_user.id)
       redirect_to root_path
     else
       flash[:error] = "Could not sign you up. Check the form below for errors"

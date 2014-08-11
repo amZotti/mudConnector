@@ -4,20 +4,30 @@
   <%= @map %>
 </pre>
 
-<%= form_for :directions do |f| %>
-  <% if @character.can_move_west? %>.
-    <%= f.submit "west" %>
-  <% end %>
+<TABLE BORDER="0">
+  <TR>
+    <TD>
+      <% if @character.can_move_west? %>
+        <%= button_to "west", movements_url(direction: :west) %>
+    <% end %>
+    </TD>
 
-  <% if @character.can_move_east? %>
-    <%= f.submit "north" %>
-  <% end %>
+    <TD>
+      <% if @character.can_move_east? %>
+        <%= button_to "north", movements_url(direction: :north) %>
+    <% end %>
+    </TD>
 
-  <% if @character.can_move_south? %>
-    <%= f.submit "south" %>
-  <% end %>
+    <TD>
+      <% if @character.can_move_south? %>
+        <%= button_to "south", movements_url(direction: :south) %>
+    <% end %>
+    </TD>
 
-  <% if @character.can_move_east? %>
-    <%= f.submit "east" %>
-  <% end %>
-<% end %>
+    <TD>
+      <% if @character.can_move_east? %>
+        <%= button_to "east", movements_url(direction: :east) %>
+    <% end %>
+    </TD>
+  </TR>
+</TABLE>

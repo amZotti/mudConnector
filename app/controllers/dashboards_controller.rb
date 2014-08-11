@@ -1,6 +1,6 @@
 class DashboardsController < ApplicationController
   def show
-    @character = Character.new
-    @map = Map.new(@character).display
+    @character = current_user.character
+    @map = Map.new.display
   end
 end
