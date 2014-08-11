@@ -45,12 +45,12 @@ class Character < ActiveRecord::Base
   end
 
   def move_north
-    self.y_coordinate += 1
+    self.y_coordinate -= 1
     save
   end
 
   def move_south
-    self.y_coordinate -= 1
+    self.y_coordinate += 1
     save
   end
 end
