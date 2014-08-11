@@ -2,30 +2,22 @@
 <h1>Map</h1>
 <pre id="ascii-map"><%= @map %></pre>
 
-<TABLE BORDER="0">
-  <TR>
-    <TD>
-      <% if @character.can_move_west? %>
-        <%= button_to "west", movements_url(direction: :west) %>
-    <% end %>
-    </TD>
+<table border="0">
+  <tr>
+    <td>
+      <%= button_to "west", movements_path(direction: :west) %>
+    </td>
 
-    <TD>
-      <% if @character.can_move_north? %>
-        <%= button_to "north", movements_url(direction: :north) %>
-    <% end %>
-    </TD>
+    <td>
+      <%= button_to "north", movements_path(direction: :north) %>
+    </td>
 
-    <TD>
-      <% if @character.can_move_south? %>
-        <%= button_to "south", movements_url(direction: :south) %>
-    <% end %>
-    </TD>
+    <td>
+      <%= button_to "south", movements_path(direction: :south) %>
+    </td>
 
-    <TD>
-      <% if @character.can_move_east? %>
-        <%= button_to "east", movements_url(direction: :east) %>
-    <% end %>
-    </TD>
-  </TR>
-</TABLE>
+    <td>
+      <%= button_to "east", movements_path(direction: :east) %>
+    </td>
+  </tr>
+</table>
