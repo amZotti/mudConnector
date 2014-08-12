@@ -19,11 +19,11 @@ class Character < ActiveRecord::Base
   end
 
   def at_x_boundary?
-    self.x_coordinate != 0 && self.x_coordinate % X_BOUNDARY == 0
+    x_coordinate != 0 && x_coordinate % X_BOUNDARY == 0
   end
 
   def at_y_boundary?
-    self.y_coordinate != 0 && self.y_coordinate % Y_BOUNDARY == 0
+    y_coordinate != 0 && y_coordinate % Y_BOUNDARY == 0
   end
 
   def move_east
