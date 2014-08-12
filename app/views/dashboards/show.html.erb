@@ -2,22 +2,22 @@
 <h1>Map</h1>
 <pre id="ascii-map"><%= @map %></pre>
 
-<TABLE BORDER="0">
-  <TR>
-    <TD>
+<table border="0">
+  <tr>
+    <td>
         <%= button_to "west", movements_url(direction: :west) %>
-    </TD>
+    </td>
 
-    <TD>
+    <td>
         <%= button_to "north", movements_url(direction: :north) %>
-    </TD>
+    </td>
 
-    <TD>
+    <td>
         <%= button_to "south", movements_url(direction: :south) %>
-    </TD>
+    </td>
 
-    <TD>
+    <td>
         <%= button_to "east", movements_url(direction: :east) %>
-    </TD>
-  </TR>
-</TABLE>
+    </td>
+  </tr>
+</table>
