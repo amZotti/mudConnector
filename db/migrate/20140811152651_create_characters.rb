@@ -6,5 +6,6 @@ class CreateCharacters < ActiveRecord::Migration
       t.integer :y_coordinate, default: 0, null: false
       t.timestamps null: false
     end
+    add_index :characters, :user_id
   end
 end
