@@ -27,7 +27,6 @@ class Map
   end
 
   def mark_character_coordinates(terrain)
-    puts @character.y_coordinate
     terrain[@character.y_coordinate][@character.x_coordinate][0][0] = "*"
   end
 end
