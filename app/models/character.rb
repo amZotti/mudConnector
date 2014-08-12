@@ -54,5 +54,3 @@ class Character < ActiveRecord::Base
     save
   end
 end
-
-
