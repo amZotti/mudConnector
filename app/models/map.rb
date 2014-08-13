@@ -1,7 +1,7 @@
 class Map
   def initialize(character)
     @character = character
-    @non_player_character = NonPlayerCharacter.first
+    @non_player_characters = NonPlayerCharacter.all
   end
 
   def display
@@ -32,7 +32,7 @@ class Map
   end
 
   def mark_all_character_coordinates(terrain)
-    [@character, @non_player_character].each do |character|
+    [@character, @non_player_characters].flatten.each do |character|
       mark_character_coordinates(character, terrain)
     end
   end
