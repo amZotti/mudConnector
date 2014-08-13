@@ -6,8 +6,7 @@ class Map
 
   def display
     terrain = duplicate_world
-    mark_character_coordinates(@character, terrain)
-    mark_character_coordinates(@non_player_character, terrain)
+    mark_all_character_coordinates(terrain)
     map_terrain(terrain)
   end
 
@@ -30,5 +29,11 @@ class Map
 
   def mark_character_coordinates(character, terrain)
     terrain[character.y_coordinate][character.x_coordinate][0][0] = "*"
+  end
+
+  def mark_all_character_coordinates(terrain)
+    [@character, @non_player_character].each do |character|
+      mark_character_coordinates(character, terrain)
+    end
   end
 end
