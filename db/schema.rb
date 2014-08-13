@@ -27,10 +27,10 @@ ActiveRecord::Schema.define(version: 20140813185702) do
   add_index "characters", ["user_id"], name: "index_characters_on_user_id", using: :btree
 
   create_table "non_player_characters", force: true do |t|
-    t.integer  "x_coordinate"
-    t.integer  "y_coordinate"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.integer  "x_coordinate", default: 8, null: false
+    t.integer  "y_coordinate", default: 7, null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
   end
 
   create_table "users", force: true do |t|
