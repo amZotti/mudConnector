@@ -6,5 +6,5 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-World.create(terrain: TerrainBuilder.new)
+World.create(terrain: TerrainBuilder.new.terrain)
 NonPlayerCharacter.generate
