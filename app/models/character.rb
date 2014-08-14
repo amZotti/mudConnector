@@ -1,8 +1,10 @@
 class Character < ActiveRecord::Base
   belongs_to :user
 
-  Y_BOUNDARY = World.first.terrain.length - 1
-  X_BOUNDARY = World.first.terrain[0].length - 1
+  WEST_BOUNDARY = 0
+  EAST_BOUNDARY = World.first.terrain[0].length - 1
+  NORTH_BOUNDARY = 0
+  SOUTH_BOUNDARY = World.first.terrain.length - 1
 
   def move(direction)
     case direction
@@ -18,41 +20,49 @@ class Character < ActiveRecord::Base
     save
   end
 
-  def at_x_boundary?
-    x_coordinate != 0 && x_coordinate % X_BOUNDARY == 0
+  def at_west_boundary?
+    x_coordinate == WEST_BOUNDARY
   end
 
-  def at_y_boundary?
-    y_coordinate != 0 && y_coordinate % Y_BOUNDARY == 0
+  def at_east_boundary?
+    x_coordinate == EAST_BOUNDARY
+  end
+
+  def at_south_boundary?
+    y_coordinate == SOUTH_BOUNDARY
+  end
+
+  def at_north_boundary?
+    y_coordinate == NORTH_BOUNDARY
   end
 
   def move_east
-    if at_x_boundary?
-      self.x_coordinate = 0
+    if at_east_boundary?
+      self.x_coordinate = WEST_BOUNDARY
     else
       self.x_coordinate += 1
     end
   end
 
   def move_west
-    if at_x_boundary?
-      self.x_coordinate = 0
+    if at_west_boundary?
+      self.x_coordinate = EAST_BOUNDARY
     else
       self.x_coordinate -= 1
     end
   end
 
   def move_north
-    if at_y_boundary?
-      self.y_coordinate = 0
+    if at_north_boundary?
+      self.y_coordinate = SOUTH_BOUNDARY
     else
       self.y_coordinate -= 1
     end
   end
 
   def move_south
-    if at_y_boundary?
-      self.y_coordinate = 0
+    if at_south_boundary?
+      self.y_coordinate = NORTH_BOUNDARY
     else
       self.y_coordinate += 1
     end
