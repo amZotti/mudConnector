@@ -3,6 +3,6 @@ class MovementsController < ApplicationController
     @character = current_user.character
     @character.move(params[:direction])
     @map = Map.new(@character).display
-    render "dashboards/show"
+    redirect_to "/"
   end
 end
