@@ -11,26 +11,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140813185702) do
+ActiveRecord::Schema.define(version: 20140815115415) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "characters", force: true do |t|
-    t.integer  "user_id",                  null: false
-    t.integer  "x_coordinate", default: 0, null: false
-    t.integer  "y_coordinate", default: 0, null: false
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.integer  "user_id",                       null: false
+    t.integer  "x_coordinate", default: 0,      null: false
+    t.integer  "y_coordinate", default: 0,      null: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+    t.integer  "power_level",  default: 300,    null: false
+    t.integer  "energy_level", default: 100,    null: false
+    t.string   "name",         default: "User", null: false
   end
 
   add_index "characters", ["user_id"], name: "index_characters_on_user_id", using: :btree
 
   create_table "non_player_characters", force: true do |t|
-    t.integer  "x_coordinate", null: false
-    t.integer  "y_coordinate", null: false
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.integer  "x_coordinate",                             null: false
+    t.integer  "y_coordinate",                             null: false
+    t.datetime "created_at",                               null: false
+    t.datetime "updated_at",                               null: false
+    t.integer  "power_level",  default: 300,               null: false
+    t.integer  "energy_level", default: 100,               null: false
+    t.string   "name",         default: "Frieza henchman", null: false
   end
 
   create_table "users", force: true do |t|
