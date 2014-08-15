@@ -1,8 +1,7 @@
 class AttacksController < ApplicationController
   def create
-    @character = current_user.character
-    Attack.new(@character, target, attack_params[:attack_type]).hit
-    @map = Map.new(@character).display
+    character = current_user.character
+    Attack.new(character, target, attack_params[:attack_type]).hit
     redirect_to root_path
   end
 

@@ -6,7 +6,6 @@ class Attack
   end
 
   def hit
-    @target.power_level -= 10
-    @target.save
+    @target.update(power_level: @target.power_level - 10)
   end
 end
