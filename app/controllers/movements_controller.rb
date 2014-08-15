@@ -2,8 +2,8 @@ class MovementsController < ApplicationController
   def create
     @character = current_user.character
     @character.move(params[:direction])
+    @colliding = Character.colliding_with(@character) + NonPlayerCharacter.colliding_with(@character)
     @map = Map.new(@character).display
-    @characters_in_square = Square.characters(@character)
     render "dashboards/show"
   end
 end

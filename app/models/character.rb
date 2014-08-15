@@ -6,6 +6,10 @@ class Character < ActiveRecord::Base
   NORTH_BOUNDARY = 0
   SOUTH_BOUNDARY = World.first.terrain.length - 1
 
+  def self.colliding_with(player)
+    where(x_coordinate: player.x_coordinate, y_coordinate: player.y_coordinate).where.not(id: player.id)
+  end
+
   def move(direction)
     case direction
     when "east"
