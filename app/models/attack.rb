@@ -1,6 +1,5 @@
 class Attack
-  def initialize(attacker, target, attack_type)
-    @attacker = attacker
+  def initialize(target, attack_type)
     @target = target
     @attack_type = attack_type
   end
