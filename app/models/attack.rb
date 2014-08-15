@@ -8,6 +8,5 @@ class Attack
   def hit
     @target.power_level -= 10
     @target.save
-    "You punch #{@target.name}"
   end
 end
