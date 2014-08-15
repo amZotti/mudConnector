@@ -21,7 +21,7 @@
     </td>
   </tr>
 </table>
-<p id="user-stats"><%= "Energy: #{@character.energy_level.to_s}%     Power level: #{@character.power_level.to_s}" %></p>
+<p id="user-stats">Energy: <%= @character.energy_level %> Power level: <%= @character.power_level %></p>
   <% @colliding.each do |other_character| %>
     <%= "#{other_character.name} is standing here (#{other_character.power_level})" %>
 <% end %>
