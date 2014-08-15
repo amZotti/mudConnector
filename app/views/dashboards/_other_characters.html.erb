@@ -1,0 +1,11 @@
+<% other_characters.each do |other_character| %>
+  <p><%= other_character.name %> is standing here (<%= other_character.power_level %>)</p>
+
+  <%= button_to "punch #{other_character.name}",
+    attacks_path(
+      target_type: other_character.class,
+      attack_type: :punch, 
+      target_id: other_character,
+      target_name: other_character.name
+  ) %>
+<% end %>
