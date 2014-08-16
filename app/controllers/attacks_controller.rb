@@ -1,6 +1,6 @@
 class AttacksController < ApplicationController
   def create
-    Attack.new(target, attack_params[:attack_type]).hit
+    Round.new(attack_params).start_new_round
     redirect_to root_path
   end
 
@@ -12,13 +12,5 @@ class AttacksController < ApplicationController
       :target_type,
       :attack_type,
     )
-  end
-
-  def target
-    if attack_params[:target_type] == "NonPlayerCharacter"
-      NonPlayerCharacter.find(attack_params[:target_id])
-    else
-      Character.find(attack_params[:target_id])
-    end 
   end
 end
