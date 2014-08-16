@@ -2,25 +2,39 @@
 <h1>Map</h1>
 <pre id="ascii-map"><%= @map %></pre>
 
-<table border="0">
+<%= form_for :movements, class: "movements" do |f| %>
+  <table border="0">
   <tr>
     <td>
-      <%= button_to "west", movements_path(direction: :west) %>
+      <%= f.submit "west", class: "direction" %>
     </td>
 
     <td>
-      <%= button_to "north", movements_path(direction: :north) %>
+      <%= f.submit "north", class: "direction" %>
     </td>
 
     <td>
-      <%= button_to "south", movements_path(direction: :south) %>
+      <%= f.submit "south", class: "direction" %>
     </td>
 
     <td>
-      <%= button_to "east", movements_path(direction: :east) %>
+      <%= f.submit "east", class: "direction" %>
     </td>
   </tr>
 </table>
-<p id="user-stats">Energy: <%= @character.energy_level %> power level: <%= @character.power_level %></p>
-<%= render "other_characters", other_characters: @character.all_colliding_characters %>
+<% end %>
+
+<p id="user-stats">
+Energy: <%= @character.energy_level %> 
+Power Level: <%= @character.power_level %>
+</p>
+
+<div id="http">
+  <%= render "other_characters", other_characters: @character.all_colliding_characters %>
+</div>
+
+<div class="character-display"></div>
+
+<ul id="display">
+</ul>
 

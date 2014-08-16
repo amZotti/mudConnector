@@ -1,24 +1,12 @@
-class AttacksController < ApplicationController
+class AttacksController < WebsocketRails::BaseController
+  def initialize_session
+    puts "Attacks Initialization successful"
+  end
+
   def create
-    Attack.new(target, attack_params[:attack_type]).hit
-    redirect_to root_path
-  end
-
-  private
-
-  def attack_params
-    params.permit(
-      :target_id,
-      :target_type,
-      :attack_type,
-    )
-  end
-
-  def target
-    if attack_params[:target_type] == "NonPlayerCharacter"
-      NonPlayerCharacter.find(attack_params[:target_id])
-    else
-      Character.find(attack_params[:target_id])
-    end 
+    character = current_user.character
+    round = Round.new(message, character)
+    round.initiate_attack
+    send_message :create_success, attack, namespace: :attacks
   end
 end

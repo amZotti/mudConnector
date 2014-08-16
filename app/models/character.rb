@@ -5,7 +5,7 @@ class Character < ActiveRecord::Base
   EAST_BOUNDARY = World.first.terrain[0].length - 1
   NORTH_BOUNDARY = 0
   SOUTH_BOUNDARY = World.first.terrain.length - 1
-  
+
   def colliding_with
     Character.where(x_coordinate: x_coordinate, y_coordinate: y_coordinate).where.not(id: id)
   end
