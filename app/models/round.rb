@@ -1,6 +1,6 @@
-#Eveyewhere puts appears, is where AJAX will be used in the future
 class Round
   def initialize(attack_params)
+    puts attack_params.inspect
     @target = target(attack_params)
     @attack = Attack.new(attack_params)
     @attack.target_type = @target.class.to_s
@@ -8,7 +8,7 @@ class Round
   end
 
   def warning_message
-    "You retract your left fist torwards #{@target.name}"
+    Message.broadcast("You retract your left fist torwards #{@target.name}")
   end
 
   def initiate_attack
@@ -32,15 +32,16 @@ class Round
       if non_player_character_failed_to_deflect
         damage_target
       else
-        puts "Deflected"
+        Message.broadcast("#{@target.name} deflected your punch")
       end
     else
-      "hit player"
+      #PVP code here
     end
   end
 
   def damage_target
     @target.update(power_level: @target.power_level - 10)
+    Message.broadcast("You hit #{@target.name} for 10 damage")
   end
 
   def target(attack_params)

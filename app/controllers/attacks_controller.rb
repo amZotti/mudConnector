@@ -1,18 +1,12 @@
-class AttacksController < ApplicationController
-  def create
-    round = Round.new(attack_params)
-    flash[:warning] = round.warning_message
-    round.initiate_attack
-    redirect_to root_path
+class AttacksController < WebsocketRails::BaseController
+
+  def initialize_session
+    puts "Initialization successful"
   end
 
-  private
-
-  def attack_params
-    params.permit(
-      :target_id,
-      :target_type,
-      :attack_type,
-    )
+  def create
+    round = Round.new(message)
+    round.initiate_attack
+    send_message :create_success, attack, :namespace => :attacks
   end
 end
