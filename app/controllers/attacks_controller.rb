@@ -1,6 +1,8 @@
 class AttacksController < ApplicationController
   def create
-    Round.new(attack_params).start_new_round
+    round = Round.new(attack_params)
+    flash[:warning] = round.warning_message
+    round.initiate_attack
     redirect_to root_path
   end
 

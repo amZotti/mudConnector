@@ -1,20 +1,45 @@
+#Eveyewhere puts appears, is where AJAX will be used in the future
 class Round
   def initialize(attack_params)
     @target = target(attack_params)
     @attack = Attack.new(attack_params)
-    @attack.target_type = @target
+    @attack.target_type = @target.class.to_s
     @attack.save
   end
 
-  def start_new_round
+  def warning_message
+    "You retract your left fist torwards #{@target.name}"
+  end
+
+  def initiate_attack
     Thread.new do
       sleep(5)
-      hit
+      hit_target
       ActiveRecord::Base.connection.close
     end
   end
 
-  def hit
+  def non_player_character_failed_to_deflect
+    (1 + rand(10)) < 5
+  end
+
+  def is_non_player_character?
+    @attack.target_type == "NonPlayerCharacter"
+  end
+
+  def hit_target
+    if is_non_player_character?
+      if non_player_character_failed_to_deflect
+        damage_target
+      else
+        puts "Deflected"
+      end
+    else
+      "hit player"
+    end
+  end
+
+  def damage_target
     @target.update(power_level: @target.power_level - 10)
   end
 
