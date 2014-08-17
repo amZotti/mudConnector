@@ -1,7 +1,6 @@
 class AttacksController < WebsocketRails::BaseController
-
   def initialize_session
-    puts "Initialization successful"
+    puts "Attacks Initialization successful"
   end
 
   def create

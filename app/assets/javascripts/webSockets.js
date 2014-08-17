@@ -1,16 +1,27 @@
+//Create connection to WebSockets custom event routes
+//Bind to combat channel to receive real time updates
 $(document).ready(function() {
   var dispatcher = new WebSocketRails('localhost:3000/websocket');
+  var channel = dispatcher.subscribe('message');
+  channel.bind('combat', function(data) {
+    $("#display").append("<li>" + data + "</li>");
+  });
+
+  //handle attacks and combat real time
   $(".attack").submit(function() {
     dispatcher.trigger('attacks.create', attackParams());
     return false;
   });
 
-  var channel = dispatcher.subscribe('message');
-  channel.bind('combat', function(data) {
-    $("#display").append("<li>" + data + "</li>");
+  //Handle movement real time
+  $(".direction").on("click",function(e) {
+    var movement = { direction: e.target.value };
+    dispatcher.trigger('movements.create', movement);
+    return false;
   });
 });
 
+//Serialize attack data
 function attackParams() {
   return {
     target_type: $("#attack_target_type").attr("value"),
