@@ -7,9 +7,8 @@ $(document).ready(function() {
 
   var channel = dispatcher.subscribe('message');
   channel.bind('combat', function(data) {
-   $("#display").append(data);
+    $("#display").append("<li>" + data + "</li>");
   });
-
 });
 
 function attackParams() {

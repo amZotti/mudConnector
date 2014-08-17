@@ -1,18 +1,15 @@
 class Round
-  def initialize(attack_params)
-    puts attack_params.inspect
+  def initialize(attack_params, character)
     @target = target(attack_params)
     @attack = Attack.new(attack_params)
     @attack.target_type = @target.class.to_s
     @attack.save
-  end
-
-  def warning_message
-    Message.broadcast("You retract your left fist torwards #{@target.name}")
+    @damage = (character.power_level / 10) + (rand(5))
   end
 
   def initiate_attack
     Thread.new do
+      CombatMessages.warning_message(@target)
       sleep(5)
       hit_target
       ActiveRecord::Base.connection.close
@@ -32,7 +29,7 @@ class Round
       if non_player_character_failed_to_deflect
         damage_target
       else
-        Message.broadcast("#{@target.name} deflected your punch")
+        CombatMessages.deflection_message(@target)
       end
     else
       #PVP code here
@@ -40,8 +37,8 @@ class Round
   end
 
   def damage_target
-    @target.update(power_level: @target.power_level - 10)
-    Message.broadcast("You hit #{@target.name} for 10 damage")
+    @target.update(power_level: @target.power_level - @damage)
+    CombatMessages.damage_message(@target, @damage)
   end
 
   def target(attack_params)
