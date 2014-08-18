@@ -1,4 +1,4 @@
-$(document).ready(function() {
+function bindToMovement() {
   channel.bind('movement', function(data) {
     $("#ascii-map").html(data);
     colorMap();
@@ -10,7 +10,7 @@ $(document).ready(function() {
     refreshLog();
     return false;
   });
-});
+}
 
 function colorMap() {
   var textWithColor = $('#ascii-map').html();
