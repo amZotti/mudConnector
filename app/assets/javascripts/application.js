@@ -15,5 +15,4 @@
 //= require turbolinks
 //= require websocket_rails/main
 //= require pusher
-//= require_tree .
-
+//= require_tree

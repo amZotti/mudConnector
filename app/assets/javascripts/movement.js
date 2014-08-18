@@ -4,7 +4,7 @@ $(document).ready(function() {
     colorMap();
   });
 
-  $(".direction").on("click",function(e) {
+  $(".direction").on("click", function(e) {
     var movement = { direction: e.target.value };
     dispatcher.trigger('movements.create', movement);
     refreshLog();
