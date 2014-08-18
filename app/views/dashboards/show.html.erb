@@ -24,10 +24,15 @@
 </table>
 <% end %>
 
-<p id="user-stats">Energy: <%= @character.energy_level %> power level: <%= @character.power_level %></p>
+<p id="user-stats">
+Energy: <%= @character.energy_level %> 
+Power Level: <%= @character.power_level %>
+</p>
+
 <div id="http">
   <%= render "other_characters", other_characters: @character.all_colliding_characters %>
 </div>
+
 <div class="character-display"></div>
 
 <ul id="display">
