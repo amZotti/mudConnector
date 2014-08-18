@@ -8,11 +8,8 @@ class Round
   end
 
   def initiate_attack
-    Thread.new do
       CombatMessages.warning_message(@target)
-      sleep(5)
       hit_target
-      ActiveRecord::Base.connection.close
     end
   end
 
