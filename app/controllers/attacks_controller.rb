@@ -7,6 +7,6 @@ class AttacksController < WebsocketRails::BaseController
     character = current_user.character
     round = Round.new(message, character)
     round.initiate_attack
-    send_message :create_success, attack, :namespace => :attacks
+    send_message :create_success, attack, namespace: :attacks
   end
 end
