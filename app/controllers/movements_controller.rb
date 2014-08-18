@@ -6,7 +6,8 @@ class MovementsController < WebsocketRails::BaseController
   def create
     character = current_user.character
     character.move(direction)
-    redirect_to root_path
+    @map = Map.new(character).display
+    Message.display_map(@map)
   end
 end
 

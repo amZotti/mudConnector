@@ -6,6 +6,10 @@ $(document).ready(function() {
   channel.bind('combat', function(data) {
     $("#display").append("<li>" + data + "</li>");
   });
+  channel.bind('movement', function(data) {
+    $("#ascii-map").html(data);
+    colorMap(); 
+  });
 
   //handle attacks and combat real time
   $(".attack").submit(function() {
@@ -29,3 +33,15 @@ function attackParams() {
       target_id: $("#attack_target_id").attr("value")
   };
 };
+
+
+function colorMap() {
+  var textWithColor = $('#ascii-map').html();
+  if( textWithColor ){
+    textWithColor = textWithColor.replace(/\*/g, "<span class='character'>*</span>");
+    textWithColor = textWithColor.replace(/~/g, "<span class='water'>~</span>");
+    textWithColor = textWithColor.replace(/:/g, "<span class='grass'>:</span>");
+    textWithColor = textWithColor.replace(/T/g, "<span class='forest'>T</span>");
+    $('#ascii-map').html(textWithColor);
+  }
+}
