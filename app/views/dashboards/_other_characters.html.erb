@@ -1,10 +1,10 @@
 <% other_characters.each do |other_character| %>
   <p><%= other_character.name %> is standing here (<%= other_character.power_level %>)</p>
 
-  <%= form_for :attack, html: {class: "attack"} do |f| %> 
+  <%= form_for :attack, html: { class: "attack "} do |f| %> 
   <%= f.hidden_field :attack_type, value: "punch" %>
   <%= f.hidden_field :target_id, value:  other_character.id %>
   <%= f.submit "Punch #{other_character.name}" %>
-<% end %>
   <% end %>
+<% end %>
 
