@@ -6,8 +6,9 @@ class MovementsController < WebsocketRails::BaseController
   def create
     character = current_user.character
     character.move(direction)
-    @map = Map.new(character).display
-    Message.display_map(@map)
+    game = Game.new(character)
+    game.render_map_display
+    game.render_square_display
   end
 end
 

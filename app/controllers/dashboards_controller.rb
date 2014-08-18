@@ -1,7 +1,7 @@
 class DashboardsController < ApplicationController
   def show
-    @character = current_user.character
-    @map = Map.new(@character).display
-    Message.display_map(@map)
+    game = Game.new(current_user.character)
+    game.render_map_display
+    game.render_square_display
   end
 end
