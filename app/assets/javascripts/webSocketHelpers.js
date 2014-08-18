@@ -6,7 +6,7 @@ function attackParams() {
 }
 
 function displayUserStats(character) {
-  $('#user-stats').html("Energy: " + character.energy_level + " power level: " + character.power_level );
+  $('#user-stats').html("Energy: " + character.energy_level + " Power Level: " + character.power_level );
 }
 
 function displayOtherCharacters(otherCharacters) {
