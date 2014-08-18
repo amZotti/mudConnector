@@ -1,5 +1,4 @@
 class CombatMessages
-
   def self.warning_message(target)
     Message.broadcast("You retract your fist towards #{target.name}")
   end
