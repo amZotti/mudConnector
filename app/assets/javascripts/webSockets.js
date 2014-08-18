@@ -1,4 +1,5 @@
 $(document).ready(function() {
+  startHTTPboot();
   window.dispatcher = new WebSocketRails('localhost:3000/websocket');
   var channel = dispatcher.subscribe('message');
   channel.bind('combat', function(data) {
@@ -56,7 +57,6 @@ function displayOtherCharacters(otherCharacters) {
   otherCharacters.forEach(function(otherCharacter) {
     $(".character-display").append(showOtherCharacter(otherCharacter));
     $(".character-display").append(attackForm(otherCharacter));
-    console.log(otherCharacter);
   });
 }
 
@@ -87,4 +87,9 @@ function bindAttack() {
 
 function refreshLog() {
   $('.character-display').empty();
+  $('#http').empty();
+}
+
+function startHTTPboot() {
+  colorMap(); 
 }
