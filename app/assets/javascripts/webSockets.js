@@ -11,6 +11,7 @@ $(document).ready(function() {
     colorMap(); 
   });
 
+
   //handle attacks and combat real time
   $(".attack").submit(function() {
     dispatcher.trigger('attacks.create', attackParams());
