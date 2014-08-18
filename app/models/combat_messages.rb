@@ -1,7 +1,7 @@
 class CombatMessages
 
   def self.warning_message(target)
-    Message.broadcast("You retract your fist torwards #{target.name}")
+    Message.broadcast("You retract your fist towards #{target.name}")
   end
 
   def self.damage_message(target, damage)
