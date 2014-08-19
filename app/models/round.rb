@@ -8,9 +8,8 @@ class Round
   end
 
   def initiate_attack
-      CombatMessages.warning_message(@target)
-      hit_target
-    end
+    CombatMessages.warning_message(@target)
+    hit_target
   end
 
   def non_player_character_failed_to_deflect
@@ -39,7 +38,7 @@ class Round
   end
 
   def target(attack_params)
-    if attack_params[:target_type] == "NonPlayerCharacter"
+    if attack_params[:target_type]
       NonPlayerCharacter.find(attack_params[:target_id])
     else
       Character.find(attack_params[:target_id])

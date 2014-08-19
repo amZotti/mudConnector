@@ -1,7 +1,8 @@
 function attackParams() {
   return {
     attack_type: $("#attack_attack_type").attr("value"),
-    target_id: $("#attack_target_id").attr("value")
+    target_id: $("#attack_target_id").attr("value"),
+    target_type: $("#attack_target_bot").attr("value"),
   };
 }
 
@@ -30,6 +31,7 @@ function attackForm(otherCharacter) {
   return ' <form accept-charset="UTF-8" action="/" class="attack" method="post">' +
     '<input id="attack_attack_type" name="attack[attack_type]" type="hidden" value="punch"/>' +
     '<input id="attack_target_id" name="attack[target_id]" type="hidden" value="' + otherCharacter.id + '"/>' +
+    '<input id="attack_target_bot" name="attack[target_bot]" type="hidden" value="' + otherCharacter.bot + '"/>' +
     '<input name="commit" type="submit" value="Punch  ' + otherCharacter.name + '"/>' +
     '</form>'
 }

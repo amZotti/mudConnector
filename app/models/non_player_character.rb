@@ -6,4 +6,9 @@ class NonPlayerCharacter < ActiveRecord::Base
   def self.colliding_with(player)
     where(x_coordinate: player.x_coordinate, y_coordinate: player.y_coordinate)
   end
+
+  def as_json(options={})
+    super.merge(bot: true)
+  end
+
 end
