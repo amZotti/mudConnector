@@ -4,5 +4,6 @@ $(document).ready(function() {
   bindToAttack();
   bindToMovement();
   bindToSquareInformation();
+  timing();
 });
 

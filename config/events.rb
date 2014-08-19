@@ -6,4 +6,8 @@ WebsocketRails::EventMap.describe do
   namespace :movements do
     subscribe :create, 'movements#create'
   end
+
+  namespace :timings do
+    subscribe :create, 'timings#create'
+  end
 end
