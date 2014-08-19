@@ -6,4 +6,8 @@ class NonPlayerCharacter < ActiveRecord::Base
   def self.colliding_with(player)
     where(x_coordinate: player.x_coordinate, y_coordinate: player.y_coordinate)
   end
+
+  def damage(inflicted)
+    update(power_level: power_level - inflicted)
+  end
 end
