@@ -25,7 +25,9 @@ function colorMap() {
 
 function refreshLog() {
   $('.character-display').empty();
+  $('#display').empty();
   $('#http').empty();
+
 }
 
 
