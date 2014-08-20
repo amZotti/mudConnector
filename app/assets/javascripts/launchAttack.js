@@ -10,8 +10,8 @@ function launchAttack(attackParams) {
   function beginAttack() {
     if (isTargetBot)
       attackBot();
-    else
-      attackPlayer();
+    //else
+    //attackPlayer();
   }
 
   function attackBot() {

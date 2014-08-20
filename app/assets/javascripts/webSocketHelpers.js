@@ -27,17 +27,11 @@ function displayOtherCharacters(otherCharacters) {
   });
 }
 
-
-function paragraphTag(content) {
-  return "<p> " + content + " </p>";
-}
-
 function showOtherCharacter(otherCharacter) {
-  return paragraphTag(otherCharacter.name + " is standing here (" + otherCharacter.power_level + ")");
+  return "<p>" + otherCharacter.name + " is standing here (" + otherCharacter.power_level + ")</p>";
 }
 
 function attackForm(otherCharacter) {
-
   return ' <form accept-charset="UTF-8" action="/" class="attack" method="post">' +
     '<input id="attack_attack_type" name="attack[attack_type]" type="hidden" value="punch"/>' +
     '<input id="attack_target_name" name="attack[target_name]" type="hidden" value="' + otherCharacter.name + '"/>' +
@@ -46,4 +40,3 @@ function attackForm(otherCharacter) {
     '<input name="commit" type="submit" value="Punch  ' + otherCharacter.name + '"/>' +
     '</form>'
 }
-
