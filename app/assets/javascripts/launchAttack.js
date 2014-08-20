@@ -9,6 +9,7 @@ function launchAttack(attackParams) {
   beginAttack();
 
   function beginAttack() {
+    disableUserMovement();
     if (isTargetBot) {
       attackBot();
     }
@@ -28,6 +29,7 @@ function launchAttack(attackParams) {
   }
 
   function tryToHitBotWithTimedAttack() {
+    enableUserMovement();
     if (botWasHit()) {
       displayCombatMessage(attackSuccessfulMessage());
       dispatcher.trigger('damage_bots.create', damageParams());
@@ -63,5 +65,12 @@ function launchAttack(attackParams) {
       target_id: targetId,
     };
   }
-}
 
+  function enableUserMovement() {
+    $(".direction").removeAttr("disabled");
+  }
+
+  function disableUserMovement() {
+    $(".direction").attr("disabled", "disabled");
+  }
+}
