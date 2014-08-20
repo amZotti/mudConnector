@@ -10,4 +10,8 @@ class Message
   def self.display_square_information(all_characters)
     WebsocketRails[:message].trigger(:square_information, all_characters)
   end
+
+  def self.start_attack_timer
+    WebsocketRails[:timer].trigger('new', true)
+  end
 end
