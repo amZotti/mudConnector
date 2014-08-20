@@ -10,6 +10,16 @@ function bindToMovement() {
     refreshLog();
     return false;
   });
+
+  $("tr").on("click", function(e) {
+    if (movementDisabled) {
+      $("#display").append("You can't move when you are attacking someone!");
+    }
+  });
+}
+
+function movementDisabled() {
+  return ($(".direction").attr("disabled") == "disabled");
 }
 
 function colorMap() {

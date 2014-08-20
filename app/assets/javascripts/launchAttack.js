@@ -1,54 +1,35 @@
-function launchAttack(attackParams) {
-  var isTargetBot = attackParams['target_type'];
-  var targetId = attackParams['target_id'];
-  var targetName = attackParams['target_name'];
-  var targetPowerLevel = attackParams['target_power_level'];
-  var attackType = attackParams['attack_type'];
-  var userPowerLevel = attackParams['user_power_level'];
-  var damage = calculateDamage();
+function launchAttack(round) {
+  var target = round.target;
+  var attacker = round.attacker;
+  var display = round.display;
+  target.damage = calculateDamage();
   beginAttack();
 
   function beginAttack() {
-    disableUserMovement();
-    if (isTargetBot) {
+    attacker.disableMovement();
+    if (target.isBot) {
       attackBot();
     }
   }
 
   function attackBot() {
-    displayCombatMessage(attackWarningMessage());
+    display.show(display.warning(target.name));
     setTimeout(tryToHitBotWithTimedAttack, 3000);
   }
 
-  function displayCombatMessage(combatMessage) {
-    $("#display").append("<li>" + combatMessage + "</li>");
-  }
-
-  function attackWarningMessage() {
-    return "You retract your left arm towards " + targetName;
-  }
-
   function tryToHitBotWithTimedAttack() {
-    enableUserMovement();
+    attacker.enableMovement();
     if (botWasHit()) {
-      displayCombatMessage(attackSuccessfulMessage());
+      display.show(display.success(target.name, target.damage));
       dispatcher.trigger('damage_bots.create', damageParams());
     }
     else {
-      displayCombatMessage(attackFailedMessage());
+      display.show(display.failure(target.name));
     }
   }
 
-  function attackSuccessfulMessage() {
-    return "You successfully hit " + targetName + " (" + damage + ")";
-  }
-
-  function attackFailedMessage() {
-    return targetName + " deflected your attack";
-  }
-
   function calculateDamage() {
-    return userPowerLevel / 10 + drawRandomNumber();
+    return attacker.powerLevel / 10 + drawRandomNumber();
   }
 
   function botWasHit() {
@@ -61,16 +42,8 @@ function launchAttack(attackParams) {
 
   function damageParams() {
     return {
-      damage: damage,
-      target_id: targetId,
+      damage: target.damage,
+      target_id: target.id,
     };
-  }
-
-  function enableUserMovement() {
-    $(".direction").removeAttr("disabled");
-  }
-
-  function disableUserMovement() {
-    $(".direction").attr("disabled", "disabled");
   }
 }

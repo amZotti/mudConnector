@@ -1,13 +1,5 @@
 function attackParams() {
-  return {
-    attack_type: $("#attack_attack_type").attr("value"),
-    target_id: $("#attack_target_id").attr("value"),
-    target_type: $("#attack_target_bot").attr("value"),
-    target_name: $("#attack_target_name").attr("value"),
-    target_power_level: $("#attack_target_power_level").attr("value"),
-    user_energy_level: $("#user-stats").html().match(/\d+/g)[0],
-    user_power_level: $("#user-stats").html().match(/\d+/g)[1],
-  };
+  return { target: generateTarget(), attacker: generateAttacker(), display: generateDisplay() };
 }
 
 function bindAttack() {
