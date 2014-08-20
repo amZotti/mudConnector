@@ -10,10 +10,6 @@ class Character < ActiveRecord::Base
     Character.where(x_coordinate: x_coordinate, y_coordinate: y_coordinate).where.not(id: id)
   end
 
-  def as_json(options={})
-    super.merge(bot: false)
-  end
-
   def all_colliding_characters
     colliding_with + NonPlayerCharacter.colliding_with(self)
   end
