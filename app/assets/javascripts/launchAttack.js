@@ -9,10 +9,12 @@ function launchAttack(attackParams) {
   beginAttack();
 
   function beginAttack() {
-    if (isTargetBot)
+    if (isTargetBot) {
       attackBot();
-    //else
+    }
+    //else {
     //attackPlayer();
+    //}
   }
 
   function attackBot() {
@@ -33,8 +35,9 @@ function launchAttack(attackParams) {
       displayCombatMessage(attackSuccessfulMessage);
       dispatcher.trigger('damage_bots.create', damageParams());
     }
-    else
+    else {
       displayCombatMessage(attackFailedMessage);
+    }
   }
 
   function attackSuccessfulMessage() {
