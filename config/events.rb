@@ -1,13 +1,9 @@
 WebsocketRails::EventMap.describe do
-  namespace :attacks do
-    subscribe :create, 'attacks#create'
-  end
-
   namespace :movements do
     subscribe :create, 'movements#create'
   end
 
-  namespace :timings do
-    subscribe :create, 'timings#create'
+  namespace :damage_bots do
+    subscribe :create, 'damage_bots#create'
   end
 end

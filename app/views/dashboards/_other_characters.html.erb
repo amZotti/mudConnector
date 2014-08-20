@@ -2,14 +2,16 @@
   <p><%= other_character.name %> is standing here (<%= other_character.power_level %>)</p>
 
   <%= form_for :attack, html: { class: "attack" } do |f| %> 
-  <%= f.hidden_field :attack_type, value: "punch" %>
-  <%= f.hidden_field :target_id, value:  other_character.id %>
-  <% if other_character.class.to_s == "NonPlayerCharacter" %>
-    <%= f.hidden_field :target_bot, value: true %>
-  <% else %>
-    <%= f.hidden_field :target_bot, value: false %>
-  <% end %>
-  <%= f.submit "Punch #{other_character.name}" %>
+    <%= f.hidden_field :attack_type, value: "punch" %>
+    <%= f.hidden_field :user_power_level, value: @character.power_level %>
+    <%= f.hidden_field :target_name, value: other_character.name %>
+    <%= f.hidden_field :target_id, value:  other_character.id %>
+    <% if other_character.class.to_s == "NonPlayerCharacter" %>
+      <%= f.hidden_field :target_bot, value: true %>
+    <% else %>
+      <%= f.hidden_field :target_bot, value: false %>
+    <% end %>
+    <%= f.submit "Punch #{other_character.name}" %>
   <% end %>
 <% end %>
 
