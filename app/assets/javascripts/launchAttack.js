@@ -12,18 +12,15 @@ function launchAttack(attackParams) {
     if (isTargetBot) {
       attackBot();
     }
-    //else {
-    //attackPlayer();
-    //}
   }
 
   function attackBot() {
-    displayCombatMessage(attackWarningMessage);
+    displayCombatMessage(attackWarningMessage());
     setTimeout(tryToHitBotWithTimedAttack, 3000);
   }
 
   function displayCombatMessage(combatMessage) {
-    $("#display").append("<li>" + combatMessage() + "</li>");
+    $("#display").append("<li>" + combatMessage + "</li>");
   }
 
   function attackWarningMessage() {
@@ -32,11 +29,11 @@ function launchAttack(attackParams) {
 
   function tryToHitBotWithTimedAttack() {
     if (botWasHit()) {
-      displayCombatMessage(attackSuccessfulMessage);
+      displayCombatMessage(attackSuccessfulMessage());
       dispatcher.trigger('damage_bots.create', damageParams());
     }
     else {
-      displayCombatMessage(attackFailedMessage);
+      displayCombatMessage(attackFailedMessage());
     }
   }
 
