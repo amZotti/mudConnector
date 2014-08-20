@@ -2,6 +2,7 @@ function launchAttack(attackParams) {
   var isTargetBot = attackParams['target_type'];
   var targetId = attackParams['target_id'];
   var targetName = attackParams['target_name'];
+  var targetPowerLevel = attackParams['target_power_level'];
   var attackType = attackParams['attack_type'];
   var userPowerLevel = attackParams['user_power_level'];
   var damage = calculateDamage();
@@ -49,7 +50,7 @@ function launchAttack(attackParams) {
   }
 
   function botWasHit() {
-    return (drawRandomNumber() < 5);
+    return (drawRandomNumber() < 8);
   }
 
   function drawRandomNumber() {

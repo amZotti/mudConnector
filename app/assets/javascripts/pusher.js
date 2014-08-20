@@ -3,5 +3,6 @@ $(document).ready(function() {
   window.channel = dispatcher.subscribe('message');
   bindToMovement();
   bindToSquareInformation();
+  bindToCombatStats();
 });
 
