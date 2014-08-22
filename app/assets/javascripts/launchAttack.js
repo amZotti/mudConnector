@@ -17,12 +17,26 @@ function launchAttack(round) {
     setTimeout(tryToHitBotWithTimedAttack, 3000);
   }
 
+  function isBotDead() {
+    target.powerLevel = parseInt($(".characters-in-square").html().match(/\d+/g));
+    return (target.powerLevel - target.damage) < 1;
+  }
+
   function tryToHitBotWithTimedAttack() {
     attacker.enableMovement();
-    if (botWasHit()) {
+    if (botWasHit())
+    { 
       display.show(display.success(target.name, target.damage));
       dispatcher.trigger('damage_bots.create', damageParams());
+      if (isBotDead()) {
+        $(".attack").empty();
+        $("#http").empty();
+        $(".character-display").empty();
+        display.show(display.death(target.name));
+        dispatcher.trigger('damage_bots.destroy', damageParams());
+      }
     }
+
     else {
       display.show(display.failure(target.name));
     }

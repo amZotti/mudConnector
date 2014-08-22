@@ -15,6 +15,10 @@ function generateDisplay() {
     failure: function(name) {
       return name + " deflected your attack";
     },
+
+    death: function(name) {
+      return name + " is killed right before your eyes";
+    }
   };
 }
 

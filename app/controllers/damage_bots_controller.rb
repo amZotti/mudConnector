@@ -5,6 +5,11 @@ class DamageBotsController < WebsocketRails::BaseController
     WebsocketRails[:message].trigger('powerLevelUpdate', bot)
   end
 
+  def destroy
+    bot = NonPlayerCharacter.find(damage_params["target_id"])
+    bot.destroy
+  end
+
   private
 
   def damage_params
