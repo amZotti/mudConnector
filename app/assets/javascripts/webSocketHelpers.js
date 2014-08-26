@@ -1,10 +1,10 @@
 function attackParams() {
-  return { target: generateTarget(), attacker: generateAttacker(), display: generateDisplay() };
+  return { target: generateBot(), attacker: generatePlayer(), display: generateDisplay() };
 }
 
 function bindAttack() {
   $(".attack").submit(function() {
-    launchAttack(attackParams());
+    userAttack(attackParams());
     return false;
   });
 }

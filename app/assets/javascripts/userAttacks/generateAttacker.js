@@ -1,4 +1,4 @@
-function generateAttacker() {
+function generatePlayer() {
   return {
     energyLevel: $("#user-stats").html().match(/\d+/g)[0],
     powerLevel: $("#user-stats").html().match(/\d+/g)[1],

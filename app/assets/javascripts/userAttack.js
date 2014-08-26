@@ -1,4 +1,4 @@
-function launchAttack(round) {
+function userAttack(round) {
   var target = round.target;
   var attacker = round.attacker;
   var display = round.display;

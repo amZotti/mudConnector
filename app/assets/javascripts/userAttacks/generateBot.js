@@ -1,4 +1,4 @@
-function generateTarget() {
+function generateBot() {
   return {
     attackType: $("#attack_attack_type").attr("value"),
     id: $("#attack_target_id").attr("value"),
