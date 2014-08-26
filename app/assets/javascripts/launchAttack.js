@@ -7,7 +7,6 @@ function launchAttack(round) {
 
   function beginAttack() {
     attacker.disableMovement();
-    startFight(target,attacker);
     if (target.isBot) {
       attackBot();
     }
@@ -24,9 +23,10 @@ function launchAttack(round) {
   }
 
   function tryToHitBotWithTimedAttack() {
+    startFight(target,attacker);
     attacker.enableMovement();
     if (botWasHit())
-    { 
+    {
       display.show(display.success(target.name, target.damage));
       dispatcher.trigger('damage_bots.create', damageParams());
       if (isBotDead()) {
@@ -44,7 +44,7 @@ function launchAttack(round) {
   }
 
   function calculateDamage() {
-    return attacker.powerLevel / 10 + drawRandomNumber();
+    return Math.round(attacker.powerLevel / 10 + drawRandomNumber());
   }
 
   function botWasHit() {

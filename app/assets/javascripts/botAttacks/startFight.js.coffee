@@ -3,18 +3,21 @@ window.startFight = (bot,user) ->
   user.damage = bot.hitPower
   attackPlayer(bot, user)
 
-warningMessage = (botName) ->
-  console.log("#{botName} retracts his arm towards you...")
+warningMessage = (name) ->
+  displayMessage("#{name} retracts his arm towards you...")
+
+successMessage = (name, hitPower) ->
+  displayMessage("#{name} hits you (#{hitPower})")
 
 attackPlayer = (bot, user) ->
   warningMessage(bot.name)
   setTimeout(
-    (-> hitPlayer bot.name, bot.hitPower, user)
+    (-> hitPlayer bot, user)
     ,3000)
 
-hitPlayer = (name, hitPower, user) ->
+hitPlayer = (bot, user) ->
   damagePlayer(user)
-  console.log("#{name} hits you for #{hitPower} damage")
+  successMessage(bot.name, bot.hitPower)
 
 calculateHitPower = (powerLevel) ->
   Math.round((powerLevel / 10) + randomValue())
@@ -25,3 +28,6 @@ randomValue = () ->
 damagePlayer = (user) ->
   dispatcher.trigger('damage_user.create', user)
   bindToUserPowerLevel()
+
+displayMessage = (combatMessage) ->
+  $("#display").append("<li>" + combatMessage + "</li>");
