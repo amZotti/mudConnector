@@ -1,13 +1,11 @@
 function generatePlayer() {
-  return {
-    energyLevel: $("#user-stats").html().match(/\d+/g)[0],
-    powerLevel: $("#user-stats").html().match(/\d+/g)[1],
-    enableMovement: function() {
-      $(".direction").removeAttr("disabled");
-    },
-
-    disableMovement: function() {
-      $(".direction").attr("disabled", "disabled");
-    },
+  character.enableMovement = function() {
+    $(".direction").removeAttr("disabled");
   };
+
+  character.disableMovement = function() {
+    $(".direction").attr("disabled", "disabled");
+  };
+  console.log(character);
+  return character;
 }
