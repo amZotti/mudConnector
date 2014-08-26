@@ -6,6 +6,5 @@ function generatePlayer() {
   character.disableMovement = function() {
     $(".direction").attr("disabled", "disabled");
   };
-  console.log(character);
   return character;
 }

@@ -1,4 +1,4 @@
-window.startFight = (bot,user) ->
+window.startFight = (bot, user) ->
   bot.hitPower = calculateHitPower(bot.powerLevel)
   user.damage = bot.hitPower
   attackPlayer(bot, user)
@@ -13,7 +13,7 @@ attackPlayer = (bot, user) ->
   warningMessage(bot.name)
   setTimeout(
     (-> hitPlayer bot, user)
-    ,3000)
+    , 3000)
 
 hitPlayer = (bot, user) ->
   damagePlayer(user)
@@ -26,7 +26,7 @@ randomValue = () ->
   Math.round((Math.random() * 10) + 1)
 
 damagePlayer = (user) ->
-  dispatcher.trigger('damage_user.create', user)
+  dispatcher.trigger("damage_user.create", user)
   bindToUserPowerLevel()
 
 displayMessage = (combatMessage) ->

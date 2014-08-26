@@ -28,13 +28,13 @@ function userAttack(round) {
     if (botWasHit())
     {
       display.show(display.success(target.name, target.damage));
-      dispatcher.trigger('damage_bots.create', damageParams());
+      dispatcher.trigger("damage_bots.create", damageParams());
       if (isBotDead()) {
         $(".attack").empty();
         $("#http").empty();
         $(".character-display").empty();
         display.show(display.death(target.name));
-        dispatcher.trigger('damage_bots.destroy', damageParams());
+        dispatcher.trigger("damage_bots.destroy", damageParams());
       }
     }
 

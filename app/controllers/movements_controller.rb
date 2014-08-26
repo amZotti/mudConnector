@@ -8,5 +8,5 @@ end
 private
 
 def direction
-  message['direction']
+  message["direction"]
 end

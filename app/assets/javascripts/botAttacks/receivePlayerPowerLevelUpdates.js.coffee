@@ -1,3 +1,3 @@
 window.bindToUserPowerLevel = () ->
-  channel.bind('userPowerLevel', (data) ->
+  channel.bind("userPowerLevel", (data) ->
     $("#user-powerlevel").html("PowerLevel: #{data}"))

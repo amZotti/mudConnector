@@ -10,6 +10,6 @@ class DamageUsersController < WebsocketRails::BaseController
   private
 
   def damage_params
-    message['damage']
+    message["damage"]
   end
 end

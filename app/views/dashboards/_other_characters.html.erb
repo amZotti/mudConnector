@@ -1,5 +1,5 @@
 <% other_characters.each do |other_character| %>
-  <p class='characters-in-square'><%= other_character.name %> is standing here (<%= other_character.power_level %>)</p>
+  <p class="characters-in-square"><%= other_character.name %> is standing here (<%= other_character.power_level %>)</p>
 
   <%= form_for :attack, html: { class: "attack" } do |f| %> 
     <%= f.hidden_field :attack_type, value: "punch" %>
