@@ -24,10 +24,10 @@
 </table>
 <% end %>
 
-<p id="user-stats">
-Energy: <%= @character.energy_level %>
-Power Level: <%= @character.power_level %>
-</p>
+<div id="user-stats">
+  <span id="user-energy"> Energy: <%= @character.energy_level %> </span>
+  <span id="user-powerlevel"> Power Level: <%= @character.power_level %> </span>
+</div>
 
 <div id="http">
   <%= render "other_characters", other_characters: @character.all_colliding_characters %>

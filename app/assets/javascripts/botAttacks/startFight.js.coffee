@@ -23,4 +23,5 @@ randomValue = () ->
   Math.round((Math.random() * 10) + 1)
 
 damagePlayer = (user) ->
-  dispatcher.trigger('damage_user.create', user);
+  dispatcher.trigger('damage_user.create', user)
+  bindToUserPowerLevel()
