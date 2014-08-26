@@ -7,6 +7,7 @@ function launchAttack(round) {
 
   function beginAttack() {
     attacker.disableMovement();
+    startFight(target,attacker);
     if (target.isBot) {
       attackBot();
     }
