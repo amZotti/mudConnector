@@ -1,28 +1,5 @@
-== README
+This is a MUD server that has been built on Rails. Traditionally all MUDs are made in a derivative of C or C++ and use telnet.
+I wanted to make a MUD on a Rails server and use Websockets as the protocol instead. My motivation for doing this comes
+partly from my eagerness to learn, and partly because I love MUDs and see them as a great way to learn while having fun.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+My hope is that I can continue further projects like this and play a role in revitalizing the text-based gaming community.
