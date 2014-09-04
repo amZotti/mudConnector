@@ -13,9 +13,6 @@
 
 ActiveRecord::Schema.define(version: 20140820164318) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
   create_table "characters", force: true do |t|
     t.integer  "user_id",                       null: false
     t.integer  "x_coordinate", default: 0,      null: false
@@ -27,7 +24,7 @@ ActiveRecord::Schema.define(version: 20140820164318) do
     t.string   "name",         default: "User", null: false
   end
 
-  add_index "characters", ["user_id"], name: "index_characters_on_user_id", using: :btree
+  add_index "characters", ["user_id"], name: "index_characters_on_user_id"
 
   create_table "non_player_characters", force: true do |t|
     t.integer  "x_coordinate",                             null: false
@@ -46,7 +43,7 @@ ActiveRecord::Schema.define(version: 20140820164318) do
     t.datetime "updated_at",      null: false
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["email"], name: "index_users_on_email", unique: true
 
   create_table "worlds", force: true do |t|
     t.text     "terrain",    null: false
